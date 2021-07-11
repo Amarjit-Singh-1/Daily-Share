@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
+@import url("https://fonts.googleapis.com/css2?family=B612&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 50px;
+}
+.App {
+  font-family: "B612", sans-serif;
+  text-align: center;
+}
+.profile__dp {
+  height: 100px;
+}
+
+:root {
+  --primary-color: #fc2e20;
+  --secondary-color: #e4d22f;
+}
+.navigation-bar a:active {
+  opacity: 0.7;
+}
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 10%;
+  margin: 0;
+  background-color: var(--primary-color);
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  list-style: none;
+}
+.navigation-bar a {
+  font-weight: 500;
+  color: #ffffff;
+  /* color: var(--primary-color); */
+  text-decoration: none;
+}
+
+.navigation-bar-links {
+  display: flex;
+}
+
+.navigation-bar-links li {
+  padding: 0rem 1.2rem;
+}
+.navigation-bar-logo {
+  color: white;
+}
+
+/* Cards */
+.card {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 90vw;
+}
+
+.card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.input:focus {
+  border-color: dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-white {
+  color: whitesmoke;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.search-list-container {
+  position: absolute;
+  z-index: 1000000;
+  background: red;
+  width: 200px;
+  list-style: none;
+  margin-top: 10px;
+}
+.search-list-item:hover,
+.search-list-item a:hover {
+  opacity: 0.9;
+  background: tomato;
+  color: grey;
+}
+.search-list-container:first-child {
+  padding-top: 10px;
+}
