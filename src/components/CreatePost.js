@@ -7,9 +7,11 @@ import { useToken } from "../utils.js";
 export function CreatePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [isPosting, setIsPosting] = useState(false);
   const token = useToken();
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
+    setIsPosting(true);
     e.preventDefault();
     try {
       const res = await axios.post(
@@ -24,6 +26,9 @@ export function CreatePost() {
           }
         }
       );
+      setIsPosting(false);
+      setTitle("");
+      setDescription("");
       if (res.data.post.title) {
         dispatch(createPost(res.data.post));
       } else {
@@ -31,6 +36,7 @@ export function CreatePost() {
       }
     } catch (error) {
       console.log(error);
+      setIsPosting(false);
     }
   };
   return (
@@ -42,14 +48,14 @@ export function CreatePost() {
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        className="input"
+        className="input resizedTextbox"
         type="text"
         placeholder="Write your post here..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
       <button type="submit" className="btn">
-        Post
+        {isPosting ? "Posting..." : "Post"}
       </button>
     </form>
   );

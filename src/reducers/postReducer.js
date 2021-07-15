@@ -2,7 +2,7 @@ const postInit = [
   {
     title: "something",
     _id: 1,
-    description: "what the fuck is this app",
+    description: "what is this app",
     likes: [],
     postedBy: { name: "someone", _id: 1 },
     time: Date.now()
@@ -10,7 +10,7 @@ const postInit = [
   {
     title: "something",
     _id: 2,
-    description: "what the fuck is this app",
+    description: "what is this app",
     likes: [],
     postedBy: { name: "someone", _id: 1 },
     time: Date.now()
@@ -18,7 +18,7 @@ const postInit = [
   {
     title: "something",
     _id: 3,
-    description: "what the fuck is this app",
+    description: "what is this app",
     likes: [],
     postedBy: { name: "someone", _id: 1 },
     time: Date.now()

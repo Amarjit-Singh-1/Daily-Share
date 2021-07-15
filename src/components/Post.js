@@ -75,16 +75,24 @@ export function Post({ post }) {
           <h2>{post.postedBy?.username}</h2>
         </Link>
         <h4>
-          {post.title} - {moment(post.time).fromNow()}
+          {post.title} <span> - {moment(post.time).fromNow()}</span>
         </h4>
         <p>{post.description}</p>
-        {likeLoader && <button>...</button>}
+        {likeLoader && (
+          <button className="icon-btn">
+            <span class="material-icons-outlined">loop</span>
+          </button>
+        )}
         {!likeLoader && (
           <>
             {post.likes.includes(_id) ? (
-              <button onClick={handleUnlike}>unlike</button>
+              <button className="icon-btn btn-red" onClick={handleUnlike}>
+                <i className="material-icons-outlined">favorite</i>
+              </button>
             ) : (
-              <button onClick={handleLike}>like</button>
+              <button className="icon-btn" onClick={handleLike}>
+                <i className="material-icons-outlined">favorite_border</i>
+              </button>
             )}
           </>
         )}
