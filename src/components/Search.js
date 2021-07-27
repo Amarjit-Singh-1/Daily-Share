@@ -54,6 +54,7 @@ const Search = () => {
       <input
         value={input}
         type="search"
+        className="search"
         onChange={(e) => setInput(e.target.value)}
         placeholder="search by username"
       />

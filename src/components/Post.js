@@ -71,32 +71,42 @@ export function Post({ post }) {
           to={`/profile/${
             _id === post.postedBy?._id ? "" : post.postedBy?._id
           }`}
+          style={{ textDecoration: "none" }}
         >
-          <h2>{post.postedBy?.username}</h2>
+          <div className="post-user">{post.postedBy?.username}</div>
         </Link>
-        <h4>
-          {post.title} <span> - {moment(post.time).fromNow()}</span>
-        </h4>
+        <div className="post-heading">
+          {post.title}{" "}
+          <span className="post-time"> - {moment(post.time).fromNow()}</span>
+        </div>
         <p>{post.description}</p>
-        {likeLoader && (
-          <button className="icon-btn">
-            <span class="material-icons-outlined">loop</span>
-          </button>
-        )}
-        {!likeLoader && (
-          <>
-            {post.likes.includes(_id) ? (
-              <button className="icon-btn btn-red" onClick={handleUnlike}>
-                <i className="material-icons-outlined">favorite</i>
-              </button>
-            ) : (
-              <button className="icon-btn" onClick={handleLike}>
-                <i className="material-icons-outlined">favorite_border</i>
+        <div className="Liked">
+          <div>
+            {likeLoader && (
+              <button className="icon-btn">
+                <span className="material-icons-outlined">loop</span>
               </button>
             )}
-          </>
-        )}
-        {post.likes.length}
+            {!likeLoader && (
+              <>
+                {post.likes.includes(_id) ? (
+                  <>
+                    <button className="icon-btn btn-red" onClick={handleUnlike}>
+                      <i className="material-icons-outlined">favorite</i>
+                    </button>
+                  </>
+                ) : (
+                  <button className="icon-btn" onClick={handleLike}>
+                    <i className="material-icons-outlined">favorite_border</i>
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+          <span style={{ paddingTop: "1.15rem", paddingLeft: "0.2rem" }}>
+            {post.likes.length}
+          </span>
+        </div>
       </div>
     </div>
   );

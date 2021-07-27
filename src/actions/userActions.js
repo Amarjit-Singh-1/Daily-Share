@@ -11,16 +11,16 @@ export const logoutUser = () => {
   };
 };
 
-export const followUser = (id) => {
+export const followUser = (following) => {
   return {
-    type: "FOLLOW_USER",
-    payload: { id }
+    type: "FOLLOW",
+    payload: { following }
   };
 };
 
-export const unfollowUser = (id) => {
+export const unfollowUser = (following) => {
   return {
-    type: "UNFOLLOW_USER",
-    payload: { id }
+    type: "UNFOLLOW",
+    payload: { following }
   };
 };

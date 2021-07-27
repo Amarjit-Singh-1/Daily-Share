@@ -17,7 +17,7 @@ function Navbar({ user }) {
           {!user && (
             <>
               <li>
-                <Link to="/signin">Signin</Link>
+                <Link to="/signin">Login</Link>
               </li>
               <li>
                 <Link to="/signup">Signup</Link>

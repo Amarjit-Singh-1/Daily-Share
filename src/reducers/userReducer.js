@@ -19,14 +19,14 @@ const userReducer = (state = userInit, action) => {
     case "LOGOUT_USER": {
       return userInit;
     }
-    case "FOLLOW_USER": {
+    case "FOLLOW": {
       const newState = JSON.parse(JSON.stringify(state));
-      console.log(action.payload.id);
+      newState.following = action.payload.following;
       return newState;
     }
-    case "UNFOLLOW_USER": {
+    case "UNFOLLOW": {
       const newState = JSON.parse(JSON.stringify(state));
-      console.log(action.payload.id);
+      newState.following = action.payload.following;
       return newState;
     }
     default: {

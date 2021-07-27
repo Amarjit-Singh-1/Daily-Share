@@ -1,6 +1,7 @@
 // import { user } from "../fakedata";
 // import { followUser, unfollowUser } from "../actions/userActions";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import UserPosts from "./UserPosts";
 // import { useParams } from "react-router-dom";
 export default function Profile() {
   // const dispatch = useDispatch();
@@ -13,10 +14,11 @@ export default function Profile() {
       <h1>User Profile</h1>
       <img src={user.diplayPicture} alt="display" className="profile__dp" />
       <div>
-        <div>Username: {user.username}</div>
+        <div className="user-heading"> {user.username}</div>
         <div>{user.followers.length} Followers</div>
         <div>{user.following.length} Following</div>
       </div>
+      <UserPosts userId={user._id} />
     </div>
   );
 }
