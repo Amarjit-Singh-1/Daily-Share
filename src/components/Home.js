@@ -38,13 +38,6 @@ export function Home() {
   return (
     <div className="home">
       <CreatePost />
-      {/* {status === "success" && (
-        <button onClick={getPosts} style={{ fontSize: "2rem" }}>
-          <span role="img" aria-label="">
-            🔄
-          </span>
-        </button>
-      )} */}
       {status === "success" &&
         state.posts.map((post) => {
           return <Post key={post._id} post={post} />;
