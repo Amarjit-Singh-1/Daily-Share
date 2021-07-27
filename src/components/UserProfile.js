@@ -1,7 +1,7 @@
 // import { user } from "../fakedata";
-import { followUser, unfollowUser } from "../actions/userActions";
+// import { followUser, unfollowUser } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { apiEndPoint, useToken } from "../utils";
