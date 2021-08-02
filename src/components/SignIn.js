@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../actions/userActions";
 export function SignIn() {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("test1");
+  const [password, setPassword] = useState("test123");
   const [isLogging, setIsLogging] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     setIsLogging(true);
@@ -32,28 +33,48 @@ export function SignIn() {
       setIsLogging(false);
     }
   };
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <input
-        className="input"
-        value={username}
-        onChange={(e) => setUserName(e.target.value)}
-        placeholder="Enter Username"
-      />
-      <input
-        className="input"
-        type="text"
-        password={password}
-        placeholder="Enter Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <span>
-        Don't have an account <Link to="/signup">create account</Link>
-      </span>
-      <button className="btn" type="submit">
-        {isLogging && "Logging you in..."}
-        {!isLogging && "Login"}
-      </button>
-    </form>
+    <div className="signin-container">
+      <form onSubmit={handleSubmit} className="form Signin">
+        <span className="heading">Login</span>
+        <input
+          className="input"
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="Enter Username"
+          required
+        />
+        <div className="password">
+          <input
+            className="input"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            placeholder="Enter Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <span
+            className="material-icons-outlined"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? "visibility" : "visibility_off"}
+          </span>
+        </div>
+        <span>
+          Don't have an account?{" "}
+          <Link to="/signup" style={{ textDecoration: "none", color: "" }}>
+            Sign Up
+          </Link>
+          .
+        </span>
+        <button className="btn" type="submit">
+          {isLogging && "Logging you in..."}
+          {!isLogging && "Login"}
+        </button>
+      </form>
+    </div>
   );
 }

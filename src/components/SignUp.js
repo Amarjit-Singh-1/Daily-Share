@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export function SignUp() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [retypedPassword, setRetypedPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isLogging, setIsLogging] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
@@ -32,36 +34,70 @@ export function SignUp() {
       console.log(error);
     }
   };
+  const isPasswordMatched =
+    retypedPassword !== "" && retypedPassword === password;
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <input
-        className="input"
-        placeholder="Enter Username"
-        value={username}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        className="input"
-        type="text"
-        placeholder="Enter Password"
-        password={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Link to="/signin">Have an account already?</Link>
-      <button type="submit" className="btn">
-        {isLogging && "Creating account..."}
-        {!isLogging && "Sign Up"}
-      </button>
-    </form>
+    <div className="signup-container">
+      <form onSubmit={handleSubmit} className="form Signup">
+        <span className="heading">SignUp</span>
+        <input
+          className="input"
+          placeholder="Enter Username"
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <div className="password">
+          <input
+            className="input"
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter Password"
+            password={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <span
+            class="material-icons-outlined"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? "visibility" : "visibility_off"}
+          </span>
+        </div>
+        <input
+          className="input"
+          type="text"
+          placeholder="Re-Type Password"
+          password={retypedPassword}
+          onChange={(e) => setRetypedPassword(e.target.value)}
+          required
+        />
+        <span className="font-1 color-1">
+          {retypedPassword !== "" && !isPasswordMatched
+            ? "Both Password must Match!"
+            : ""}
+        </span>
+        <span>
+          Have an account already?{" "}
+          <Link to="/signin" style={{ textDecoration: "none" }}>
+            Sign In
+          </Link>
+        </span>
+        <button
+          type="submit"
+          className={
+            retypedPassword !== "" && !isPasswordMatched
+              ? "disabled-btn"
+              : "btn"
+          }
+          disabled={!isPasswordMatched}
+        >
+          {isLogging && "Creating account..."}
+          {!isLogging && "Sign Up"}
+        </button>
+      </form>
+    </div>
   );
 }
-// const res = await fetch(
-//   "https://SocialMedia.amarjitsingh2.repl.co/api/v1/auth",
-//   {
-//     method: "POST",
-//     body: JSON.stringify({
-//       username,
-//       password
-//     })
-//   }
-// );

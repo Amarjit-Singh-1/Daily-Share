@@ -2,6 +2,7 @@ import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { apiEndPoint, useToken } from "../utils";
 import { Post } from "./Post";
+import Loader from "react-loader-spinner";
 
 export default function UserPosts({ userId }) {
   const [userPosts, setUserPosts] = useState([]);
@@ -33,7 +34,9 @@ export default function UserPosts({ userId }) {
     <div className="home">
       {status === "success" &&
         userPosts.map((post) => <Post key={post._id} post={post} />)}
-      {status === "loading" && <p>Loading posts...</p>}
+      {status === "loading" && (
+        <Loader type="Rings" color="#00BFFF" height={80} width={80} />
+      )}
       {status === "error" && (
         <p>
           There was an error <button onClick={getPosts}>retry</button>

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { apiEndPoint, useToken } from "../utils";
 import { setPosts } from "../actions/postActions";
+import Loader from "react-loader-spinner";
 export function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -37,18 +38,13 @@ export function Home() {
   return (
     <div className="home">
       <CreatePost />
-      {status === "success" && (
-        <button onClick={getPosts}>
-          <span role="img" aria-label="">
-            🔄
-          </span>
-        </button>
-      )}
       {status === "success" &&
         state.posts.map((post) => {
           return <Post key={post._id} post={post} />;
         })}
-      {status === "loading" && <p>Loading all the posts...</p>}
+      {status === "loading" && (
+        <Loader type="Puff" color="#00BFFF" height={80} width={80} />
+      )}
       {status === "fail" && (
         <p>
           There was an error

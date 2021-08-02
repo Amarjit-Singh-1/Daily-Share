@@ -11,4 +11,3 @@ export const PrivateRouter = ({ redirectPath, condition, ...props }) => {
   }
   return <Route {...props} />;
 };
-// export default PrivateRouter;

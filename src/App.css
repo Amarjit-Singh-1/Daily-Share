@@ -9,24 +9,65 @@
   padding: 0;
 }
 body {
-  padding-top: 50px;
+  padding-top: 5rem;
+  background-color: #dcdcdc;
 }
+
+.resizedTextbox {
+  width: 15rem;
+  height: 7rem;
+}
+
 .App {
   font-family: "B612", sans-serif;
   text-align: center;
 }
 .profile__dp {
   height: 100px;
+  border-radius: 50%;
+}
+
+.user-heading {
+  font-size: 1.8rem;
 }
 
 :root {
   --primary-color: #fc2e20;
   --secondary-color: #e4d22f;
+  --color-1: #e66a61;
+  --font-1: 0.96rem;
 }
+
+.font-1 {
+  font-size: var(--font-1);
+}
+
+.color-1 {
+  color: var(--color-1);
+}
+
 .navigation-bar a:active {
   opacity: 0.7;
 }
+
+.heading {
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+
 .navigation-bar {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 10%;
+  margin: 0;
+  background-color: var(--primary-color);
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  list-style: none; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +79,6 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
-  list-style: none;
 }
 .navigation-bar a {
   font-weight: 500;
@@ -49,22 +89,55 @@ body {
 
 .navigation-bar-links {
   display: flex;
+  list-style: none;
 }
 
 .navigation-bar-links li {
   padding: 0rem 1.2rem;
+  display: flex;
+  align-items: center;
 }
 .navigation-bar-logo {
   color: white;
 }
 
 /* Cards */
+
+.post-user {
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.post-heading {
+  font-size: 1.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.2rem;
+}
+.post-time {
+  font-size: 0.95rem;
+}
+
 .card {
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 300px;
-  max-width: 90vw;
+  max-width: 90vw; */
+  box-sizing: border-box;
+  /* background-color: #484d60; */
+  background: #ffffff;
+  width: 400px;
+  padding: 1rem;
+  padding-bottom: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.Liked {
+  display: flex;
 }
 
 .card-front {
@@ -81,6 +154,8 @@ body {
 }
 .input {
   border: 2px solid #aaa;
+  width: 15rem;
+  height: 2.5rem;
   border-radius: 4px;
   margin: 8px 0;
   outline: none;
@@ -94,11 +169,45 @@ body {
   box-shadow: 0 0 8px 0 dodgerblue;
 }
 
+.post-title {
+  border: 2px solid #aaa;
+  width: 10rem;
+  height: 2.2rem;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.post-description {
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.password {
+  display: flex;
+  position: relative;
+}
+
+.password span {
+  position: absolute;
+  top: 25%;
+  left: 85%;
+  cursor: pointer;
 }
 
 .color-white {
@@ -107,6 +216,17 @@ body {
 
 .btn {
   background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.disabled-btn {
+  background-color: var(--color-1);
+  cursor: not-allowed;
   padding: 0.5rem 1rem;
   border: none;
   color: white;
@@ -131,4 +251,50 @@ body {
 }
 .search-list-container:first-child {
   padding-top: 10px;
+}
+
+.icon-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  padding-top: 1rem;
+  /* margin: 0.2rem; */
+}
+
+.btn-red {
+  color: red;
+}
+
+.login-card {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 90vw;
+}
+
+.signin-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  width: max-content;
+  margin: 0 auto;
+}
+.Signup,
+.Signin {
+  box-sizing: border-box;
+  /* background-color: #484d60; */
+  background: #ffffff;
+  width: max-content;
+  padding: 1rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 3rem 0px;
+  border-radius: 0.2rem;
+}
+.search {
+  height: 30px;
 }
