@@ -12,11 +12,15 @@ const userReducer = (state = userInit, action) => {
   switch (action.type) {
     case "LOGIN_USER": {
       // let newState = JSON.parse(JSON.stringify(state));
+      if (action.payload.user.token) {
+        localStorage.setItem("jwt", action.payload.user.token);
+      }
       const user = JSON.parse(JSON.stringify(action.payload.user));
       // newState = {...user}
       return { ...user };
     }
     case "LOGOUT_USER": {
+      localStorage.removeItem("jwt");
       return userInit;
     }
     case "FOLLOW": {
@@ -34,7 +38,5 @@ const userReducer = (state = userInit, action) => {
     }
   }
 };
-
-// https://replit.com/@AmarjitSingh2/SocialMedia#Models/post.js
 
 export default userReducer;

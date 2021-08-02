@@ -1,14 +1,7 @@
-// import { user } from "../fakedata";
-// import { followUser, unfollowUser } from "../actions/userActions";
 import { useSelector } from "react-redux";
 import UserPosts from "./UserPosts";
-// import { useParams } from "react-router-dom";
 export default function Profile() {
-  // const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  // const { userId } = useParams();
-  // const handleFollow = (e) => {};
-  // const handleUnFollow = (e) => {};
   return (
     <div className="profile">
       <h1>User Profile</h1>

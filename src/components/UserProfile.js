@@ -1,5 +1,3 @@
-// import { user } from "../fakedata";
-// import { followUser, unfollowUser } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -17,22 +15,10 @@ const userInit = {
   username: null,
   posts: []
 };
-/*
-followers: Array(0)
-following: Array(0)
-diplayPicture: "https://res.cloudinary.com/hookupcloudddddddddddd/image/upload/v1602536872/temp_au3esd.png"
-_id: "60e9dab415667b019c6f9290"
-username: "nachi"
-__v: 0
-posts: Array(0)
-*/
 export default function UserProfile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { userId } = useParams();
-  // const handleFollow = (e) => {};
-  // const handleUnFollow = (e) => {};
-  // const [showPosts, setShowPosts] = useState(false);
   const [profileUserData, setProfileUserData] = useState(userInit);
   const [status, setStatus] = useState("idle");
   const [followLoader, setFollowLoader] = useState(false);
@@ -106,7 +92,6 @@ export default function UserProfile() {
     }
     setFollowLoader(true);
     try {
-      // e.preventDefault();
       const res = await axios.put(
         `https://SocialMedia.amarjitsingh2.repl.co/api/v1/user/unfollow`,
         {
@@ -154,7 +139,6 @@ export default function UserProfile() {
           </div>
           <div>
             {followLoader ? (
-              // <p>Loading....</p>
               isFollowed ? (
                 <button className="btn">UnFollowing...</button>
               ) : (

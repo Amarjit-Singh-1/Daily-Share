@@ -73,27 +73,3 @@ const postReducer = (state = postInit, action) => {
 };
 
 export default postReducer;
-// {
-//   title: "something",
-//   _id: 1,
-//   description: "what the fuck is this app",
-//   likes: [],
-//   postedBy: "someone",
-//   time: Date.now()
-// },
-// {
-//   title: "something",
-//   _id: 2,
-//   description: "what the fuck is this app",
-//   likes: [],
-//   postedBy: "someone",
-//   time: Date.now()
-// },
-// {
-//   title: "something",
-//   _id: 3,
-//   description: "what the fuck is this app",
-//   likes: [],
-//   postedBy: "someone",
-//   time: Date.now()
-// }

@@ -11,7 +11,6 @@ export function CreatePost() {
   const [isPosting, setIsPosting] = useState(false);
   const token = useToken();
   const dispatch = useDispatch();
-  // console.log(user);
   const handleSubmit = async (e) => {
     setIsPosting(true);
     e.preventDefault();

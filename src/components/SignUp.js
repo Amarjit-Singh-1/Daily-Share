@@ -101,13 +101,3 @@ export function SignUp() {
     </div>
   );
 }
-// const res = await fetch(
-//   "https://SocialMedia.amarjitsingh2.repl.co/api/v1/auth",
-//   {
-//     method: "POST",
-//     body: JSON.stringify({
-//       username,
-//       password
-//     })
-//   }
-// );

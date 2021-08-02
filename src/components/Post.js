@@ -111,13 +111,3 @@ export function Post({ post }) {
     </div>
   );
 }
-
-/* <div class="card text-left">
-  <div class="card-front">
-    <div class="card-content">
-      <h3>Basic card: left text</h3>
-      <p>I'm just a standard card with my text aligned to the left</p>
-      <button class="btn">Click me!</button>
-    </div>
-  </div>
-</div>; */
